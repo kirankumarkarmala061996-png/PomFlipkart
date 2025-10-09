@@ -9,7 +9,7 @@ public class Login_page {
 		
 	}
 	
-	By email = By.xpath("//input[@class='_2IX_2- VJZDxU']");
+	By email = By.xpath("//input[@class='email']");
 	By password = By.xpath("//input[@type='password']");
 	By loginButton = By.xpath("//button[@class='_2KpZ6l _2HKlqd _3AWRsL']");
 	By closeLoginPopup = By.xpath("//button[@class='_2KpZ6l _2doB4z']");
