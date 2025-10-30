@@ -1,5 +1,5 @@
 package com.qa.flipkart.Errors;
 
-public class BrowserErrors {
+public class AppErrors {
 
 }
