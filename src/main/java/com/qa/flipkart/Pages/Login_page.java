@@ -6,22 +6,44 @@ import org.openqa.selenium.interactions.Actions;
 
 public class Login_page {
 
-	WebDriver driver;
-	
+	 WebDriver driver;
+
 	public Login_page(WebDriver driver) {
-		this.driver=driver;
+		this.driver = driver;
 	}
+
+	private By userName = By.xpath("//input[@name='username']");
+	private By passWord = By.xpath("//input[@name='username']");
+	private By loginButton = By.xpath("//input[@value='Log In']");
+	private By forgotPasswordLink = By.xpath("//a[normalize-space()='Forgot login info?']");
+	private By logo = By.xpath("//img[@class='admin']");
 	
-	By email = By.xpath("//input[@class=\"r4vIwl BV+Dqf\"]");
-	By password = By.xpath("//input[@type='password']");
-	By closeLoginPopup = By.xpath("//button[@class='_2KpZ6l _2doB4z']");
-	By loginButton = By.xpath("//button[@class='_2KpZ6l _2HKlqd _3AWRsL']");
-	By loginErrorMessage = By.xpath("//span[@class='_2YULOR']");
-	By forgotPasswordLink = By.xpath("//a[@class='_1g3afI']");
-	By requestOtpLink = By.xpath("//a[@class='_1g3afI']");
-	By signUpLink = By.xpath("//a[@class='_1g3afI']");
-	
-	
-	
-	Actions action = new Actions(driver);
+
+	public String getTitle() {
+		String title = driver.getTitle();
+		return title;
+	}
+
+	public String getUrl() {
+		String currentPageUrl = driver.getTitle();
+		return currentPageUrl;
+	}
+
+	public boolean isForgetPasswordLinkTestExist() {
+		return driver.findElement(forgotPasswordLink).isDisplayed();
+	}
+
+	public boolean isLogoExist() {
+		return driver.findElement(logo).isDisplayed();
+	}
+
+	public String doLogin(String username, String pass) {
+		driver.findElement(userName).sendKeys(username);
+		driver.findElement(passWord).sendKeys(pass);
+		driver.findElement(loginButton).click();
+		String homePageTitle = driver.getTitle();
+		System.out.println("homepage tile is:" + homePageTitle);
+		return homePageTitle;
+	}
+
 }
